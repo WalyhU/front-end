@@ -19,7 +19,7 @@ const ShowCard = ({
   nombre,
   carnet,
   resumen,
-  nota,
+  calificacion,
   tema,
   categoria,
 }) => {
@@ -46,9 +46,9 @@ const ShowCard = ({
           {nombre.replace(/^Nombre del alumno:/, "")}
         </Typography>
         <Typography sx={{ mb: "1.5rem" }} color={theme.palette.secondary[200]}>
-          Nota: {Number(parseInt(nota.match(/\w\d/g))).toFixed(2)}%
+          Nota: {Number(parseInt(calificacion.match(/\w\d/g))).toFixed(2)}%
         </Typography>
-        <Rating value={parseFloat(parseInt(nota.match(/\w\d/g)) * 0.05).toFixed(2)} readOnly />
+        <Rating value={parseFloat(parseInt(calificacion.match(/\w\d/g)) * 0.05).toFixed(2)} readOnly />
 
         <Typography variant="body2">{resumen.replace(/^Resumen:/, "")}</Typography>
       </CardContent>
@@ -106,7 +106,7 @@ function Cards() {
                 nombre,
                 carnet,
                 resumen,
-                nota,
+                calificacion,
                 tema,
                 categoria,
             }) => (
@@ -116,7 +116,7 @@ function Cards() {
                 nombre={nombre}
                 carnet={carnet}
                 resumen={resumen}
-                nota={nota}
+                calificacion={calificacion}
                 tema={tema}
                 categoria={categoria}
               />

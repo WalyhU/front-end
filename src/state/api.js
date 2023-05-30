@@ -9,15 +9,23 @@ export const api = createApi({
       query: () => "tareas/listar/",
       providesTags: ["Tareas"],
     }),
-    deleteTarea: builder.query({
+    deleteTarea: builder.mutation({
       query: (body) => ({
         url: `tareas/eliminar/`,
         method: "DELETE",
         body,
       }),
-      providesTags: ["Tareas"],
+      invalidatesTags: ["Tareas"],
+    }),
+    addTarea: builder.mutation({
+      query: (body) => ({
+        url: `tareas/agregar/`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Tareas"],
     }),
   }),
 });
 
-export const { useGetTareasQuery, useDeleteTareaQuery } = api;
+export const { useGetTareasQuery, useDeleteTareaMutation, useAddTareaMutation } = api;

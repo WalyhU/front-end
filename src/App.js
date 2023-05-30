@@ -4,9 +4,9 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "theme";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import Home from "./scenes/home";
+import Inicio from "./scenes/inicio";
 import Layout from "./scenes/layout";
-import Cards from "./scenes/cards"
+import Cards from "./scenes/cards";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -18,8 +18,8 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<Navigate to="/home" replace />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Navigate to="/inicio" replace />} />
+              <Route path="/inicio" element={<Inicio />} />
               <Route path="/tarjetas" element={<Cards />} />
             </Route>
           </Routes>

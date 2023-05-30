@@ -3,14 +3,13 @@ import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
-  Search,
   SettingsOutlined,
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
-//import profileImage from "assets/profile.jpeg";
+import profileImage from "assets/profile.jpg";
 import {
   AppBar,
   useTheme,
@@ -21,11 +20,9 @@ import {
   Menu,
   MenuItem,
   IconButton,
-  InputBase,
 } from "@mui/material";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
-  const profileImage = "";
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -52,17 +49,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
-          <FlexBetween
-            backgroundColor={theme.palette.background.alt}
-            borderRadius="9px"
-            gap="3rem"
-            p="0.1rem 1.5rem"
-          >
-            <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
         </FlexBetween>
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
@@ -112,7 +98,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {user.carnet}
                 </Typography>
               </Box>
               <ArrowDropDownOutlined
@@ -128,7 +114,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+              <MenuItem onClick={handleClose}>PROGRAMACIÓN 1</MenuItem>
+              <MenuItem onClick={handleClose}>Semestre 3</MenuItem>
+              <MenuItem onClick={handleClose}>Ingeniería en Sistemas</MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>
