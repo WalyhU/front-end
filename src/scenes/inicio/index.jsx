@@ -157,8 +157,6 @@ function Home() {
   const { data, isLoading, refetch } = useGetTareasQuery();
   const [deleteTarea] = useDeleteTareaMutation();
   const apiRef = useGridApiRef();
-
-  // Crear un SweetAlert para eliminar
   const MySwal = withReactContent(Swal);
 
   const handleDeleteAlert = () => {
@@ -240,7 +238,6 @@ function Home() {
       headerName: "Nota",
       flex: 0.1,
       renderCell: (params) => {
-        // dejar solo numeros en el parametro
         return params.value.match(/\w\d%/g);
       },
     },

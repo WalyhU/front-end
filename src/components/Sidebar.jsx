@@ -10,6 +10,8 @@ import {
   ListItemText,
   Typography,
   useTheme,
+  Avatar,
+  Grid,
 } from "@mui/material";
 import {
   ChevronLeft,
@@ -20,6 +22,7 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
+import logo from "../assets/LOGOTIPO.svg";
 
 const navItems = [
   {
@@ -74,9 +77,46 @@ const Sidebar = ({
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold">
-                    PROYECTO FINAL
-                  </Typography>
+                  {/* Insertar la imagen del logo */}
+                  <Avatar
+                    alt="logo"
+                    src={logo}
+                    sx={{ width: "2.5rem", height: "2.5rem" }}
+                    variant="square"
+                  />
+                  <Grid
+                    container
+                    direction="column"
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                  >
+                    <Grid item>
+                      <Typography
+                        sx={{
+                          fontSize: "1.5rem",
+                          fontWeight: "bold",
+                          color: theme.palette.secondary.main,
+                          mb: "-5px",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        Grade
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        sx={{
+                          fontSize: "1.5rem",
+                          fontWeight: "bold",
+                          color: theme.palette.secondary.main,
+                          mt: "-5px",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        Genius
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Box>
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>

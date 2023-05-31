@@ -1,5 +1,5 @@
 {
-  "name": "front-end",
+  "name": "grade-genius",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,29 +8,24 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.13.2",
     "@mui/x-data-grid": "^6.5.0",
-    "@nivo/bar": "^0.80.0",
-    "@nivo/core": "^0.80.0",
-    "@nivo/geo": "^0.80.0",
-    "@nivo/pie": "^0.80.0",
     "@reduxjs/toolkit": "^1.9.2",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
-    "react-datepicker": "^4.10.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "sweetalert2": "^11.7.8",
-    "sweetalert2-react-content": "^5.0.7",
-    "web-vitals": "^2.1.4"
+    "sweetalert2-react-content": "^5.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
+    "electron": "concurrently \"set BROWSER=none npm start\" \"wait-on http://127.0.0.1:3000 && electron .\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "package": "react-scripts build && set ELECTRON_IS_DEV=0 electron-forge package",
+    "make": "react-scripts build && set ELECTRON_IS_DEV=0 electron-forge make",
+    "electron-react": "concurrently \"serve -s build\" \"electron http://127.0.0.1:3000\""
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "electron": "^25.0.0",
+    "electron-forge": "^5.2.4",
+    "electron-is-dev": "^2.0.0",
+    "electron-packager": "^17.1.1",
+    "electron-prebuilt-compile": "8.2.0",
+    "wait-on": "^7.0.1"
   }
 }
